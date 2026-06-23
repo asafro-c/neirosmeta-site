@@ -436,9 +436,9 @@
           </div>
         </div>
         <form class="form" action="https://formspree.io/f/mykqzogq" method="POST">
-          <input type="text" placeholder="Имя / организация" />
-          <input type="tel" placeholder="Телефон или Telegram" />
-          <select>
+          <input type="text" name="name" placeholder="Имя / организация" />
+          <input type="tel" name="phone" placeholder="Телефон или Telegram" />
+          <select name="type">
             <option value="" disabled selected>Тип сметы</option>
             <option>Ремонт квартиры / дома</option>
             <option>Благоустройство территории</option>
@@ -448,7 +448,7 @@
             <option>Укрупнённый расчёт</option>
             <option>Экспертиза чужой сметы</option>
           </select>
-          <textarea placeholder="Кратко: объект, адрес, площадь, перечень работ"></textarea>
+          <textarea name="message" placeholder="Кратко: объект, адрес, площадь, перечень работ"></textarea>
           <button class="btn filled" type="submit" style="width:100%;justify-content:center">Получить расчёт стоимости</button>
           <div class="note-small">Нажимая кнопку, вы соглашаетесь на обработку данных. Текст политики и оферты нужно добавить перед публикацией.</div>
         </form>
