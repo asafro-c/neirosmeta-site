@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/aleks/Downloads/index.html#contact -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>НейроСмета — подготовка сметной документации с помощью ИИ</title>
+  <meta name="description" content="НейроСмета — методология подготовки рыночных смет на ремонт, строительство и благоустройство с использованием ИИ.">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./index_files/css2" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0A0A;
+      --card: rgba(255,255,255,.06);
+      --text: #C8C8C8;
+      --silver: #D4D4D4;
+      --muted: #8A8A8A;
+      --gold: #C9A84C;
+      --gold-light: #E8D48B;
+      --gold-dim: #A07D2E;
+      --green: #6EE7A8;
+      --red: #F27171;
+      --line: rgba(255,255,255,.10);
+      --shadow: 0 24px 70px rgba(0,0,0,.5);
+      --radius: 24px;
+      --serif: 'Unbounded', system-ui, sans-serif;
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', 'Courier New', monospace;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+    }
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:60px 60px;
+      mask-image:radial-gradient(circle at center,rgba(0,0,0,.6),transparent 70%);
+      z-index:-1;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1140px,calc(100% - 48px));margin:0 auto}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(20px);background:rgba(10,10,10,.8);border-bottom:1px solid var(--line)}
+    .nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:20px;font-weight:500;color:var(--gold)}
+    .logo-mark{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold-dim));color:#111;font-family:var(--sans);font-style:normal;font-weight:600;font-size:12px;letter-spacing:.02em}
+    .menu{display:flex;align-items:center;gap:28px;font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.1em;text-transform:uppercase}
+    .menu a:hover{color:var(--silver)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 28px;border-radius:12px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:.2s}
+    .btn:hover{background:var(--gold);color:#111}
+    .btn.filled{background:linear-gradient(135deg,var(--gold),var(--gold-dim));color:#111;border-color:transparent}
+    .btn.filled:hover{opacity:.9}
+    .btn.secondary{border-color:var(--line);color:var(--silver)}
+    .btn.secondary:hover{border-color:var(--silver);background:rgba(255,255,255,.05)}
+
+    /* HERO */
+    .hero{padding:80px 0 60px}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;padding:8px 16px;border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.06);border-radius:999px;color:var(--gold-light);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green)}
+    h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.5vw,56px);line-height:1.15;color:var(--gold-light);letter-spacing:-.03em}
+    .lead{margin:28px 0 0;color:var(--text);font-size:16px;line-height:1.75;max-width:540px;font-weight:400}
+    .lead b{color:var(--gold);font-weight:600;font-style:normal}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+    .proof-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px}
+    .proof{padding:20px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+    .proof b{display:block;font-family:var(--serif);font-size:28px;color:var(--gold);font-weight:500}
+    .proof span{display:block;margin-top:6px;color:var(--muted);font-size:12px;line-height:1.45}
+
+    /* DASHBOARD DEMO */
+    .dashboard{border-radius:28px;padding:24px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--line);box-shadow:var(--shadow)}
+    .dash-top{display:flex;justify-content:space-between;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+    .pill{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.06);color:var(--muted);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line)}
+    .estimate-card{padding:24px;border-radius:20px;background:rgba(0,0,0,.3);border:1px solid var(--line);margin-bottom:14px}
+    .estimate-label{color:var(--muted);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.14em}
+    .estimate-total{margin:10px 0 6px;font-family:var(--serif);font-size:36px;line-height:1;font-weight:500;color:var(--gold-light)}
+    .estimate-total small{font-size:18px;color:var(--muted);font-style:normal}
+    .estimate-caption{color:var(--green);font-size:12px;font-weight:500}
+    .dash-rows{display:grid;gap:8px}
+    .dash-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:13px;font-weight:400;color:var(--silver)}
+    .dash-row .val{color:var(--gold);font-family:var(--mono);font-size:12px;font-weight:500;white-space:nowrap}
+    .dash-row .src{color:var(--muted);font-size:10px;font-weight:500;white-space:nowrap}
+    .dash-note{margin-top:14px;padding:18px;border-radius:18px;background:rgba(10,10,10,.7);border:1px solid rgba(201,168,76,.2);backdrop-filter:blur(12px)}
+    .dash-note b{display:block;margin-bottom:6px;color:var(--gold);font-size:14px;font-weight:600}
+    .dash-note p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+
+    /* SECTIONS */
+    section{padding:80px 0}
+    .section-head{max-width:740px;margin-bottom:40px}
+    .kicker{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.18em;font-weight:500;margin-bottom:14px}
+    h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.5vw,44px);line-height:1.2;color:var(--gold-light);letter-spacing:-.03em}
+    .section-head p{margin:18px 0 0;color:var(--text);font-size:16px;line-height:1.7;font-weight:400}
+
+    /* CARDS */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{padding:28px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line)}
+    .card h3{margin:0 0 10px;font-family:var(--serif);font-size:18px;font-weight:500;color:var(--silver);letter-spacing:-.02em}
+    .card p,.card li{color:var(--muted);line-height:1.6;font-size:14px}
+    .card p{margin:0}
+    .card ul{padding-left:18px;margin:0}
+    .icon{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);color:var(--gold);font-family:var(--mono);font-weight:500;font-size:13px;margin-bottom:16px}
+
+    /* MODULES */
+    .modules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .module-card{padding:28px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line);position:relative;overflow:hidden}
+    .module-card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.5}
+    .module-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);color:var(--gold);font-family:var(--mono);font-weight:500;font-size:13px;margin-bottom:16px}
+    .module-card h3{margin:0 0 8px;font-family:var(--serif);font-size:17px;font-weight:500;color:var(--silver);letter-spacing:-.02em}
+    .module-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+
+    /* METHOD TABLE */
+    .method-table{overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:rgba(255,255,255,.04)}
+    .method-row{display:grid;grid-template-columns:.5fr .45fr 1.05fr;gap:0;border-bottom:1px solid var(--line)}
+    .method-row:last-child{border-bottom:0}
+    .method-row>div{padding:16px 18px;border-right:1px solid var(--line);color:var(--text);line-height:1.5;font-size:13px}
+    .method-row>div:last-child{border-right:0}
+    .method-row.header>div{color:var(--gold);font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:10px;background:rgba(201,168,76,.05)}
+    .method-row b{color:var(--silver);font-weight:600}
+
+    /* FORMULA */
+    .formula{margin-top:20px;padding:28px;border-radius:var(--radius);border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.04)}
+    .formula-code{font-family:var(--mono);font-size:clamp(16px,2.5vw,26px);font-weight:500;color:var(--gold-light);margin:10px 0 8px}
+    .formula p{color:var(--text);line-height:1.6;margin:0;font-size:14px}
+
+    /* SPLIT / DELIVERABLES */
+    .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:start}
+    .deliverables-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .mini{padding:18px;border-radius:18px;border:1px solid var(--line);background:var(--card)}
+    .mini b{display:block;margin-bottom:6px;color:var(--silver);font-weight:600;font-size:14px}
+    .mini span{color:var(--muted);font-size:13px;line-height:1.5}
+
+    /* COMPARE */
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+    .compare-card{padding:28px;border-radius:var(--radius);border:1px solid var(--line);background:var(--card)}
+    .compare-card h3{margin:0 0 18px;font-family:var(--serif);font-size:20px;font-weight:500;color:var(--silver);letter-spacing:-.02em}
+    .compare-item{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
+    .compare-item:last-child{border-bottom:0}
+    .compare-item .label{color:var(--muted)}
+    .compare-item .value{font-weight:500;text-align:right;color:var(--silver)}
+    .compare-item .value.good{color:var(--green)}
+    .compare-item .value.bad{color:var(--red)}
+
+    /* EXPERTISE */
+    .expertise-section{padding:36px;border-radius:var(--radius);border:1px solid rgba(201,168,76,.15);background:rgba(201,168,76,.03)}
+    .expertise-section .kicker{color:var(--gold)}
+    .expertise-section h2{font-size:clamp(22px,3vw,36px);margin-bottom:10px}
+    .expertise-section>p{color:var(--text);font-size:15px;line-height:1.7;max-width:640px;margin:0 0 20px}
+    .expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .expertise-item{padding:18px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+    .expertise-item b{display:block;margin-bottom:6px;color:var(--silver);font-size:14px;font-weight:600}
+    .expertise-item span{color:var(--muted);font-size:13px;line-height:1.5}
+
+    /* STEPS */
+    .steps{counter-reset:step;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+    .step{position:relative;padding:24px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line)}
+    .step::before{counter-increment:step;content:counter(step);width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);color:var(--gold);font-family:var(--mono);font-weight:500;font-size:14px;margin-bottom:16px}
+    .step h3{margin:0 0 8px;font-family:var(--serif);font-size:16px;font-weight:500;color:var(--silver);letter-spacing:-.02em}
+    .step p{margin:0;color:var(--muted);line-height:1.55;font-size:13px}
+
+    /* CTA */
+    .cta{padding:48px;border-radius:32px;border:1px solid rgba(201,168,76,.2);background:linear-gradient(160deg,rgba(201,168,76,.06),rgba(255,255,255,.03));box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+    .form{display:grid;gap:12px}
+    input,textarea,select{width:100%;min-height:50px;border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.3);color:var(--silver);padding:0 16px;font:inherit;font-size:14px;outline:none;transition:.2s}
+    input:focus,textarea:focus,select:focus{border-color:var(--gold)}
+    select{appearance:none;cursor:pointer}
+    select option{background:#111;color:var(--silver)}
+    textarea{min-height:110px;padding-top:14px;resize:vertical}
+    input::placeholder,textarea::placeholder{color:rgba(138,138,138,.7)}
+    .note-small{color:var(--muted);font-size:11px;line-height:1.5}
+    .ip-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;background:rgba(110,231,168,.06);border:1px solid rgba(110,231,168,.18);color:var(--green);font-size:11px;font-weight:500;letter-spacing:.02em;margin-top:20px}
+
+    /* FOOTER */
+    footer{padding:40px 0 54px;color:var(--muted);border-top:1px solid var(--line)}
+    .footer-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .hero-grid{grid-template-columns:1fr;gap:36px}
+      .hero-grid>div:first-child{order:1}
+      .dashboard{order:2}
+      .split,.cta,.compare-grid{grid-template-columns:1fr}
+      .cards,.modules-grid,.expertise-grid{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:repeat(3,1fr)}
+      .menu{display:none}
+    }
+    @media(max-width:640px){
+      .container{width:min(100%-32px,1140px)}
+      .hero{padding:48px 0 36px}
+      section{padding:56px 0}
+      h1{font-size:clamp(24px,6vw,36px)}
+      h2{font-size:clamp(20px,5vw,30px)}
+      .proof-row,.cards,.modules-grid,.deliverables-list,.expertise-grid,.steps{grid-template-columns:1fr}
+      .compare-grid{grid-template-columns:1fr}
+      .method-row{grid-template-columns:1fr}
+      .method-row>div{border-right:0;border-bottom:1px solid var(--line)}
+      .method-row>div:last-child{border-bottom:0}
+      .cta{padding:28px;grid-template-columns:1fr}
+      .hero-actions .btn{width:100%;justify-content:center}
+      .estimate-total{font-size:28px}
+      .dash-row{grid-template-columns:1fr auto;font-size:12px}
+      .dash-row .src{display:none}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="file:///C:/Users/aleks/Downloads/index.html#top">
+        <span class="logo-mark">НС</span>
+        <span>НейроСмета</span>
+      </a>
+      <div class="menu">
+        <a href="file:///C:/Users/aleks/Downloads/index.html#problem">Проблема</a>
+        <a href="file:///C:/Users/aleks/Downloads/index.html#modules">Модули</a>
+        <a href="file:///C:/Users/aleks/Downloads/index.html#method">Методология</a>
+        <a href="file:///C:/Users/aleks/Downloads/index.html#deliverables">Результат</a>
+        <a href="file:///C:/Users/aleks/Downloads/index.html#expertise">Экспертиза</a>
+        <a href="file:///C:/Users/aleks/Downloads/index.html#process">Процесс</a>
+      </div>
+      <a class="btn" href="file:///C:/Users/aleks/Downloads/index.html#contact">Заказать смету</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Методология подготовки смет с&nbsp;помощью ИИ</div>
+        <h1>Смета с&nbsp;реальными ценами, а&nbsp;не&nbsp;с&nbsp;нормативными индексами</h1>
+        <p class="lead">
+          Каждая строка&nbsp;— рыночная цена из&nbsp;каталога поставщика.
+          Каждая расценка&nbsp;— актуальный рынок подрядных работ.
+          <b>НейроСмета</b>&nbsp;— методология, где&nbsp;ИИ ищет цены, считает объёмы
+          и&nbsp;собирает Excel с&nbsp;формулами, а&nbsp;эксперт проверяет результат перед выдачей.
+        </p>
+        <div class="hero-actions">
+          <a class="btn filled" href="file:///C:/Users/aleks/Downloads/index.html#contact">Заказать смету</a>
+          <a class="btn secondary" href="file:///C:/Users/aleks/Downloads/index.html#modules">Посмотреть модули</a>
+        </div>
+        <div class="proof-row">
+          <div class="proof"><b>6</b><span>модулей: ремонт, благоустройство, строительство, коммерция, бетон, укрупнёнки</span></div>
+          <div class="proof"><b>100%</b><span>цен верифицированы по&nbsp;каталогам поставщиков на&nbsp;дату расчёта</span></div>
+          <div class="proof"><b>Excel</b><span>с формулами: можно менять объёмы&nbsp;— итог пересчитается</span></div>
+        </div>
+      </div>
+
+      <div class="dashboard" aria-label="Демо: фрагмент сметы НейроСмета">
+        <div class="dash-top">
+          <span class="pill">Демо: ремонт квартиры 72&nbsp;м²</span>
+          <span class="pill">Сегмент: средний</span>
+        </div>
+        <div class="estimate-card">
+          <div class="estimate-label">Итого по смете (с НДС)</div>
+          <div class="estimate-total">2&nbsp;847&nbsp;600 <small>₽</small></div>
+          <div class="estimate-caption">42 позиции работ · 68 позиций материалов · все цены из каталогов</div>
+        </div>
+        <div class="dash-rows">
+          <div class="dash-row"><span>Демонтаж перегородок</span><span class="val">1 200 ₽/м²</span><span class="src">КП подрядчика</span></div>
+          <div class="dash-row"><span>Штукатурка Knauf MP-75, 30 кг</span><span class="val">498 ₽</span><span class="src">Петрович</span></div>
+          <div class="dash-row"><span>Плитка керамогранит 600×600</span><span class="val">1 290 ₽/м²</span><span class="src">Лемана ПРО</span></div>
+          <div class="dash-row"><span>Укладка плитки на пол</span><span class="val">1 850 ₽/м²</span><span class="src">Рынок СПб</span></div>
+          <div class="dash-row"><span>Ламинат 33 класс, дуб</span><span class="val">890 ₽/м²</span><span class="src">Яндекс Маркет</span></div>
+        </div>
+        <div class="dash-note">
+          <b>Каждую цену можно проверить</b>
+          <p>Все цены материалов взяты из каталогов поставщиков. Расценки на работы — с рынка подрядных организаций СПб.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="problem">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Знакомо?</div>
+        <h2>«Нужна смета, но&nbsp;не&nbsp;из&nbsp;нормативной базы»</h2>
+        <p>Сметные программы считают по ФЕР/ТЕР — с индексами пересчёта, которые отстают от реальных цен. Заказчику нужна смета, где каждую строку можно сверить с каталогом.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="icon">01</div><h3>«Цены из воздуха»</h3><p>Подрядчик прислал смету, но непонятно, откуда взяты расценки: это рынок, нормативная база или просто «на глаз».</p></div>
+        <div class="card"><div class="icon">02</div><h3>«Не могу проверить»</h3><p>Смета в формате ГрандСметы или SmetaWIZARD требует специальных знаний, лицензии и понимания индексов пересчёта.</p></div>
+        <div class="card"><div class="icon">03</div><h3>«Нужно быстро»</h3><p>На составление детальной сметы с проверкой цен вручную уходят дни. Нужен инструмент, который ускоряет без потери точности.</p></div>
+        <div class="card"><div class="icon">04</div><h3>«Объёмы неточно»</h3><p>Площади, периметры, расход материалов — часто считаются приблизительно, а ошибка в объёмах даёт ошибку в бюджете.</p></div>
+        <div class="card"><div class="icon">05</div><h3>«Материалы — не те»</h3><p>В смете указаны абстрактные позиции без конкретного бренда, поставщика и цены. При закупке бюджет не сходится.</p></div>
+        <div class="card"><div class="icon">06</div><h3>«Excel — без формул»</h3><p>Смета в виде «мёртвого» файла. Нельзя изменить объём и увидеть, как меняется итог. Любая правка — пересчёт с нуля.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modules">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Модули</div>
+        <h2>6 направлений сметной документации</h2>
+        <p>Каждый модуль — отдельный набор правил, справочников расценок, типовых разделов и шаблонов. ИИ работает по правилам конкретного модуля и использует актуальные цены региона.</p>
+      </div>
+      <div class="modules-grid">
+        <div class="module-card"><div class="module-num">1</div><h3>Ремонт жилых помещений</h3><p>Косметический и капитальный ремонт квартир, домов: демонтаж, черновая и чистовая отделка, сантехника, электрика.</p></div>
+        <div class="module-card"><div class="module-num">2</div><h3>Благоустройство территории</h3><p>Мощение, ограждения, дренаж, освещение, полив, озеленение, МАФ, детские и спортивные площадки.</p></div>
+        <div class="module-card"><div class="module-num">3</div><h3>Малоэтажное строительство</h3><p>Фундамент, стены, кровля, фасад, инженерные системы, внутренняя отделка — от котлована до чистовой.</p></div>
+        <div class="module-card"><div class="module-num">4</div><h3>Коммерческие объекты</h3><p>Магазины, офисы, общепит, клиники: витражи, подвесные потолки, АПС, слаботочные системы, VRF.</p></div>
+        <div class="module-card"><div class="module-num">5</div><h3>Бетонные покрытия</h3><p>Эстакады, промышленные полы, парковки, крыльца, подпорные стены: бетон, армирование, топпинг, швы.</p></div>
+        <div class="module-card"><div class="module-num">6</div><h3>Укрупнённые расчёты</h3><p>Предварительная оценка бюджета с точностью ±15–20% для принятия решений до начала детального проектирования.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="method">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Методология</div>
+        <h2>Как формируется каждая строка сметы</h2>
+        <p>НейроСмета работает с рыночными ценами, а не с нормативными базами ФЕР/ТЕР. Каждая позиция проверена по каталогу поставщика, каждая расценка — по рынку региона.</p>
+      </div>
+      <div class="method-table">
+        <div class="method-row header"><div>Принцип</div><div>Что это значит</div><div>Как реализовано</div></div>
+        <div class="method-row"><div><b>Рыночные цены</b></div><div>Цена из каталога, а не из нормативной базы</div><div>ИИ выполняет веб-поиск по Лемана ПРО, Петрович, Яндекс Маркет, Максидом и фиксирует цену с указанием источника.</div></div>
+        <div class="method-row"><div><b>Комплексные расценки</b></div><div>Труд + механизмы + накладные + прибыль</div><div>Расценки включают всё: ФОТ рабочих, эксплуатацию оборудования, накладные расходы и прибыль подрядчика.</div></div>
+        <div class="method-row"><div><b>Ведомость материалов</b></div><div>Отдельный лист с полной разбивкой</div><div>Каждый материал: наименование, бренд, поставщик, цена за единицу, количество с учётом фасовки и запаса.</div></div>
+        <div class="method-row"><div><b>Формулы, не числа</b></div><div>Excel пересчитывается при изменении</div><div>Все ячейки связаны формулами. Итог материалов = ссылка на ведомость. Изменили объём — итог пересчитался.</div></div>
+        <div class="method-row"><div><b>НДС — однократно</b></div><div>Без двойного налогообложения</div><div>Розничные цены делятся на 1,22. НДС начисляется один раз в итоговом блоке сметы.</div></div>
+        <div class="method-row"><div><b>Региональные цены</b></div><div>Москва ≠ СПб ≠ регионы</div><div>Материалы и расценки подбираются для конкретного города. Смета для Москвы и для Казани — разные цены.</div></div>
+        <div class="method-row"><div><b>Экспертная проверка</b></div><div>Перед выдачей — ручной контроль</div><div>Каждая смета проходит чек-лист: источники цен, арифметика, объёмы, полнота состава работ.</div></div>
+      </div>
+      <div class="formula">
+        <div class="kicker">Принцип верификации</div>
+        <div class="formula-code">1 позиция = 1 веб-поиск = 1 подтверждённая цена</div>
+        <p>На смету из 50–70 позиций материалов — 50–70 поисковых запросов. Это нормальный объём работы. Экстраполяция и цены «из памяти» запрещены.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="deliverables">
+    <div class="container split">
+      <div class="section-head">
+        <div class="kicker">Результат</div>
+        <h2>Готовый комплект документов, а&nbsp;не&nbsp;просто таблица</h2>
+        <p>На выходе — Excel с формулами и пояснительная записка. Смету можно открыть, проверить каждую строку и использовать для переговоров с подрядчиком.</p>
+        <div class="hero-actions">
+          <a class="btn filled" href="file:///C:/Users/aleks/Downloads/index.html#contact">Заказать смету</a>
+        </div>
+      </div>
+      <div class="deliverables-list">
+        <div class="mini"><b>Смета (Excel)</b><span>Позиции работ с разделением на стоимость работ и материалов. Все ячейки связаны формулами.</span></div>
+        <div class="mini"><b>Ведомость материалов</b><span>Отдельный лист: наименование, бренд, поставщик, цена, количество с учётом фасовки.</span></div>
+        <div class="mini"><b>Пояснительная записка</b><span>Обоснование расценок, описание разделов, источники цен. Документ для заказчика или руководства.</span></div>
+        <div class="mini"><b>Итоговый блок</b><span>Работы + материалы + НДС. Стоимость за м². Всё прозрачно и проверяемо.</span></div>
+        <div class="mini"><b>Ценовые сегменты</b><span>Эконом, средний, премиум — разные бренды и расценки. Можно заказать два варианта для сравнения.</span></div>
+        <div class="mini"><b>Корректировка</b><span>Одна итерация правок включена в стоимость. Изменились объёмы или состав — пересчитаем.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Сравнение</div>
+        <h2>Рыночная смета vs&nbsp;смета по&nbsp;ФЕР/ТЕР</h2>
+        <p>НейроСмета не заменяет государственную сметную документацию. Она решает другую задачу: дать заказчику прозрачную картину реальных затрат на текущую дату.</p>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h3>НейроСмета (рыночная)</h3>
+          <div class="compare-item"><span class="label">Цены материалов</span><span class="value good">Каталог поставщика, дата расчёта</span></div>
+          <div class="compare-item"><span class="label">Расценки на работы</span><span class="value good">Рынок региона, текущий год</span></div>
+          <div class="compare-item"><span class="label">Понятность</span><span class="value good">Любую строку можно проверить</span></div>
+          <div class="compare-item"><span class="label">Актуальность</span><span class="value good">Свежий поиск при каждом заказе</span></div>
+          <div class="compare-item"><span class="label">Применимость</span><span class="value">Частный заказчик, бизнес, подрядчик</span></div>
+        </div>
+        <div class="compare-card">
+          <h3>Смета по ФЕР/ТЕР</h3>
+          <div class="compare-item"><span class="label">Цены материалов</span><span class="value bad">Нормативный индекс, отстаёт</span></div>
+          <div class="compare-item"><span class="label">Расценки на работы</span><span class="value bad">Государственные нормативы</span></div>
+          <div class="compare-item"><span class="label">Понятность</span><span class="value bad">Требует лицензии и знаний</span></div>
+          <div class="compare-item"><span class="label">Актуальность</span><span class="value bad">Зависит от обновления базы</span></div>
+          <div class="compare-item"><span class="label">Применимость</span><span class="value">Госзакупки, бюджетное строительство</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <div class="container">
+      <div class="expertise-section">
+        <div class="kicker">Дополнительная опция</div>
+        <h2>Экспертиза чужой сметы</h2>
+        <p>Уже есть смета от подрядчика? Проверим расценки, объёмы, материалы и коэффициенты. На выходе — экспертное заключение с конкретными замечаниями и ведомость пересчёта.</p>
+        <div class="expertise-grid">
+          <div class="expertise-item"><b>Проверка расценок</b><span>Сверка каждой расценки с рынком подрядных организаций. Выявление завышений и занижений.</span></div>
+          <div class="expertise-item"><b>Проверка материалов</b><span>Цены из сметы vs цены из каталогов поставщиков. Подмены, устаревшие цены, лишние позиции.</span></div>
+          <div class="expertise-item"><b>Проверка объёмов</b><span>Пересчёт площадей, длин, количества по проектным данным. Дубли, пропуски, ошибки округления.</span></div>
+          <div class="expertise-item"><b>Экспертное заключение</b><span>Word-документ: методология проверки, выводы по разделам, рекомендации и приоритетные правки.</span></div>
+          <div class="expertise-item"><b>Ведомость пересчёта</b><span>Excel: исходная расценка → рыночная → отклонение. По каждой позиции работ и материалов.</span></div>
+          <div class="expertise-item"><b>Сравнение версий</b><span>После корректировок — повторная проверка с фиксацией, какие замечания закрыты.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Процесс</div>
+        <h2>От заявки до готовой сметы — 5&nbsp;шагов</h2>
+        <p>Весь процесс прозрачен. Вы заполняете анкету, мы считаем, проверяем и выдаём готовый комплект документов.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Заявка</h3><p>Заполняете анкету: объект, площадь, перечень работ, сегмент. Или присылаете план с размерами.</p></div>
+        <div class="step"><h3>Договор</h3><p>Подписываем договор в электронном виде. Фиксируем состав работ, сроки и стоимость.</p></div>
+        <div class="step"><h3>Расчёт</h3><p>ИИ считает объёмы, ищет цены в каталогах, собирает Excel с формулами. Эксперт проверяет результат.</p></div>
+        <div class="step"><h3>Согласование</h3><p>Отправляем готовую смету. Обсуждаем, отвечаем на вопросы. Одна корректировка — бесплатно.</p></div>
+        <div class="step"><h3>Сдача</h3><p>Финальная версия: Excel + пояснительная записка. Оплата по факту, чек через «Мой налог».</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="cta">
+        <div>
+          <div class="kicker">Заказать</div>
+          <h2>Получите смету с&nbsp;реальными ценами</h2>
+          <p class="lead" style="margin-top:16px">Заполните форму — мы свяжемся для уточнения деталей, рассчитаем стоимость и сроки, подготовим договор.</p>
+          <div class="ip-badge">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.5 2.5 6.5 6 7.5 3.5-1 6-4 6-7.5V4L8 1z" stroke="currentColor" stroke-width="1.5" fill="none"></path><path d="M5.5 8l2 2 3.5-3.5" stroke="currentColor" stroke-width="1.5" fill="none"></path></svg>
+            Методология зарегистрирована в РЦИС РФ · Сертификат № 0021-716-491
+          </div>
+        </div>
+        <form class="form" onsubmit="event.preventDefault(); alert(&#39;Демо-форма. Подключите Telegram, CRM или почту.&#39;);">
+          <input type="text" placeholder="Имя / организация">
+          <input type="tel" placeholder="Телефон или Telegram">
+          <select>
+            <option value="" disabled="" selected="">Тип сметы</option>
+            <option>Ремонт квартиры / дома</option>
+            <option>Благоустройство территории</option>
+            <option>Малоэтажное строительство</option>
+            <option>Коммерческий объект</option>
+            <option>Бетонные покрытия / инфраструктура</option>
+            <option>Укрупнённый расчёт</option>
+            <option>Экспертиза чужой сметы</option>
+          </select>
+          <textarea placeholder="Кратко: объект, адрес, площадь, перечень работ"></textarea>
+          <button class="btn filled" type="submit" style="width:100%;justify-content:center">Получить расчёт стоимости</button>
+          <div class="note-small">Нажимая кнопку, вы соглашаетесь на обработку данных. Текст политики и оферты нужно добавить перед публикацией.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><b style="color:var(--gold)">НейроСмета</b> — методология подготовки сметной документации с использованием ИИ. Санкт-Петербург · Москва · регионы РФ.</div>
+      <div>Telegram: @a_safro · aleksey.safro@yandex.ru · ИНН 780216329302</div>
+    </div>
+  </footer>
+
+
+</body></html>
