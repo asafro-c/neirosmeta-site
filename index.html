@@ -65,7 +65,7 @@
 
     /* HERO */
     .hero{padding:80px 0 60px}
-    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:start;max-width:720px}
     .eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;padding:8px 16px;border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.06);border-radius:999px;color:var(--gold-light);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em}
     .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green)}
     h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.5vw,56px);line-height:1.15;color:var(--gold-light);letter-spacing:-.03em}
@@ -76,23 +76,6 @@
     .proof{padding:20px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
     .proof b{display:block;font-family:var(--serif);font-size:28px;color:var(--gold);font-weight:500}
     .proof span{display:block;margin-top:6px;color:var(--muted);font-size:12px;line-height:1.45}
-
-    /* DASHBOARD DEMO */
-    .dashboard{border-radius:28px;padding:24px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--line);box-shadow:var(--shadow)}
-    .dash-top{display:flex;justify-content:space-between;gap:10px;margin-bottom:16px;flex-wrap:wrap}
-    .pill{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.06);color:var(--muted);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line)}
-    .estimate-card{padding:24px;border-radius:20px;background:rgba(0,0,0,.3);border:1px solid var(--line);margin-bottom:14px}
-    .estimate-label{color:var(--muted);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.14em}
-    .estimate-total{margin:10px 0 6px;font-family:var(--serif);font-size:36px;line-height:1;font-weight:500;color:var(--gold-light)}
-    .estimate-total small{font-size:18px;color:var(--muted);font-style:normal}
-    .estimate-caption{color:var(--green);font-size:12px;font-weight:500}
-    .dash-rows{display:grid;gap:8px}
-    .dash-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:13px;font-weight:400;color:var(--silver)}
-    .dash-row .val{color:var(--gold);font-family:var(--mono);font-size:12px;font-weight:500;white-space:nowrap}
-    .dash-row .src{color:var(--muted);font-size:10px;font-weight:500;white-space:nowrap}
-    .dash-note{margin-top:14px;padding:18px;border-radius:18px;background:rgba(10,10,10,.7);border:1px solid rgba(201,168,76,.2);backdrop-filter:blur(12px)}
-    .dash-note b{display:block;margin-bottom:6px;color:var(--gold);font-size:14px;font-weight:600}
-    .dash-note p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
 
     /* SECTIONS */
     section{padding:80px 0}
@@ -185,9 +168,7 @@
 
     /* RESPONSIVE */
     @media(max-width:1024px){
-      .hero-grid{grid-template-columns:1fr;gap:36px}
-      .hero-grid>div:first-child{order:1}
-      .dashboard{order:2}
+      .hero-grid{grid-template-columns:1fr}
       .split,.cta,.compare-grid{grid-template-columns:1fr}
       .cards,.modules-grid,.expertise-grid{grid-template-columns:1fr 1fr}
       .steps{grid-template-columns:repeat(3,1fr)}
@@ -206,9 +187,6 @@
       .method-row>div:last-child{border-bottom:0}
       .cta{padding:28px;grid-template-columns:1fr}
       .hero-actions .btn{width:100%;justify-content:center}
-      .estimate-total{font-size:28px}
-      .dash-row{grid-template-columns:1fr auto;font-size:12px}
-      .dash-row .src{display:none}
     }
   </style>
 </head>
@@ -250,29 +228,6 @@
           <div class="proof"><b>6</b><span>модулей: ремонт, благоустройство, строительство, коммерция, бетон, укрупнёнки</span></div>
           <div class="proof"><b>100%</b><span>цен верифицированы по&nbsp;каталогам поставщиков на&nbsp;дату расчёта</span></div>
           <div class="proof"><b>Excel</b><span>с формулами: можно менять объёмы&nbsp;— итог пересчитается</span></div>
-        </div>
-      </div>
-
-      <div class="dashboard" aria-label="Демо: фрагмент сметы НейроСмета">
-        <div class="dash-top">
-          <span class="pill">Демо: ремонт квартиры 72&nbsp;м²</span>
-          <span class="pill">Сегмент: средний</span>
-        </div>
-        <div class="estimate-card">
-          <div class="estimate-label">Итого по смете (с НДС)</div>
-          <div class="estimate-total">2&nbsp;847&nbsp;600 <small>₽</small></div>
-          <div class="estimate-caption">42 позиции работ · 68 позиций материалов · все цены из каталогов</div>
-        </div>
-        <div class="dash-rows">
-          <div class="dash-row"><span>Демонтаж перегородок</span><span class="val">1 200 ₽/м²</span><span class="src">КП подрядчика</span></div>
-          <div class="dash-row"><span>Штукатурка Knauf MP-75, 30 кг</span><span class="val">498 ₽</span><span class="src">Петрович</span></div>
-          <div class="dash-row"><span>Плитка керамогранит 600×600</span><span class="val">1 290 ₽/м²</span><span class="src">Лемана ПРО</span></div>
-          <div class="dash-row"><span>Укладка плитки на пол</span><span class="val">1 850 ₽/м²</span><span class="src">Рынок СПб</span></div>
-          <div class="dash-row"><span>Ламинат 33 класс, дуб</span><span class="val">890 ₽/м²</span><span class="src">Яндекс Маркет</span></div>
-        </div>
-        <div class="dash-note">
-          <b>Каждую цену можно проверить</b>
-          <p>Все цены материалов взяты из каталогов поставщиков. Расценки на работы — с рынка подрядных организаций СПб.</p>
         </div>
       </div>
     </div>
@@ -449,8 +404,8 @@
             <option>Экспертиза чужой сметы</option>
           </select>
           <textarea name="message" placeholder="Кратко: объект, адрес, площадь, перечень работ"></textarea>
-          <button class="btn filled" type="submit" style="width:100%;justify-content:center">Получить расчёт стоимости</button>
-          <div class="note-small">Я согласен с Политикой конфиденциальности при обрабоке персональных данных и даю согласие на обработку персональных данных.</div>
+          <button class="btn filled" type="submit" id="submitBtn" disabled style="width:100%;justify-content:center;opacity:0.4">Получить расчёт стоимости</button>
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer"><input type="checkbox" onchange="var b=document.getElementById('submitBtn');b.disabled=!this.checked;b.style.opacity=this.checked?'1':'0.4'" style="margin-top:2px;width:18px;height:18px;accent-color:#C9A84C;flex-shrink:0"><span class="note-small">Я согласен с <a href="https://disk.yandex.ru/i/x9K9L9hQaxytSg" target="_blank" style="color:#79A7FF;text-decoration:underline">Политикой конфиденциальности</a> при обработке персональных данных и даю согласие на обработку персональных данных.</span></label>
         </form>
       </div>
     </div>
@@ -459,7 +414,7 @@
   <footer>
     <div class="container footer-grid">
       <div><b style="color:var(--gold)">НейроСмета</b> — методология подготовки сметной документации с использованием ИИ. Санкт-Петербург · Москва · регионы РФ.</div>
-      <div><a class="btn" href="https://t.me/a_safro" target="_blank">Написать в Telegram</a> · aleksey.safro@yandex.ru · ИНН 780216329302</div>
+      <div><a class="btn" href="https://t.me/a_safro" target="_blank">Написать в Telegram</a></div>
     </div>
   </footer>
 </body>
