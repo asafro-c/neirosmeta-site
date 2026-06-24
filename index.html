@@ -390,23 +390,10 @@
             Методология зарегистрирована в РЦИС РФ · Сертификат № 0021-716-491
           </div>
         </div>
-        <form class="form" action="https://formspree.io/f/mykqzogq" method="POST">
-          <input type="text" name="name" placeholder="Имя / организация" />
-          <input type="tel" name="phone" placeholder="Телефон или Telegram" />
-          <select name="type">
-            <option value="" disabled selected>Тип сметы</option>
-            <option>Ремонт квартиры / дома</option>
-            <option>Благоустройство территории</option>
-            <option>Малоэтажное строительство</option>
-            <option>Коммерческий объект</option>
-            <option>Бетонные покрытия / инфраструктура</option>
-            <option>Укрупнённый расчёт</option>
-            <option>Экспертиза чужой сметы</option>
-          </select>
-          <textarea name="message" placeholder="Кратко: объект, адрес, площадь, перечень работ"></textarea>
-          <button class="btn filled" type="submit" id="submitBtn" disabled style="width:100%;justify-content:center;opacity:0.4">Получить расчёт стоимости</button>
-          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer"><input type="checkbox" onchange="var b=document.getElementById('submitBtn');b.disabled=!this.checked;b.style.opacity=this.checked?'1':'0.4'" style="margin-top:2px;width:18px;height:18px;accent-color:#C9A84C;flex-shrink:0"><span class="note-small">Я согласен с <a href="https://disk.yandex.ru/i/x9K9L9hQaxytSg" target="_blank" style="color:#79A7FF;text-decoration:underline">Политикой конфиденциальности</a> при обработке персональных данных и даю согласие на обработку персональных данных.</span></label>
-        </form>
+        <div>
+          <script src="https://forms.yandex.ru/_static/embed.js"></script>
+          <iframe src="https://forms.yandex.ru/u/6a3bac446d2d73771a4239c7?iframe=1" frameborder="0" name="ya-form-6a3bac446d2d73771a4239c7" width="100%" height="600" style="border-radius:16px"></iframe>
+        </div>
       </div>
     </div>
   </section>
